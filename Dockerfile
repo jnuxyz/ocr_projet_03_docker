@@ -13,7 +13,7 @@ RUN echo "export VISIBLE=now" >> /etc/profile
         
 EXPOSE 22 80
 
-COPY ["start.sh", "/root/start.sh"]
-WORKDIR /root
+COPY ["start.sh", "start.sh"]
+RUN chmod +x start.sh
 
 CMD ["./start.sh"]
