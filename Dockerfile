@@ -13,7 +13,4 @@ RUN echo "export VISIBLE=now" >> /etc/profile
         
 EXPOSE 22 80
 
-COPY ["start.sh", "start.sh"]
-RUN chmod +x start.sh
-
-CMD ["./start.sh"]
+CMD ["/bin/bash", "-c", "/usr/sbin/service ssh start && nginx -g 'daemon off;'"]
