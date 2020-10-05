@@ -10,7 +10,9 @@ RUN sed -i 's/#*PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ss
 RUN sed -i 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' /etc/pam.d/sshd
 ENV NOTVISIBLE="in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
+
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
         
 EXPOSE 22 80
 
-CMD /usr/sbin/sshd -D && nginx -g "daemon off;" && service nginx start
+CMD service ssh start && service nginx start
