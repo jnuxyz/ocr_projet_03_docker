@@ -10,8 +10,10 @@ RUN sed -i 's/#*PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ss
 RUN sed -i 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' /etc/pam.d/sshd
 ENV NOTVISIBLE="in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
-RUN service ssh start
         
 EXPOSE 22 80
 
-CMD ["nginx", "-g", "daemon off;"]
+COPY ["start.sh", "/root/start.sh"]
+WORKDIR /root
+
+CMD ["./start.sh"]
