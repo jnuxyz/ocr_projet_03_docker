@@ -13,4 +13,4 @@ RUN echo "export VISIBLE=now" >> /etc/profile
         
 EXPOSE 22 80
 
-CMD /usr/sbin/sshd -D && nginx -g 'daemon off;'
+CMD /usr/sbin/sshd -D && nginx -g "daemon off;" && service nginx start
