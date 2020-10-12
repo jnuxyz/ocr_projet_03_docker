@@ -13,7 +13,7 @@ RUN apt-get update \
 # Défini le mot de passe de l'utilisateur 'root' avec la variable ROOT_PASSWORD
 RUN echo 'root:'$ROOT_PASSWORD | chpasswd
 
-# Configuration du serveur SSH pour autoriser l'utilisateur 'root' à se logger avec un mot de passe
+# Configuration du serveur SSH pour autoriser l'utilisateur 'root' à se connecter avec un mot de passe
 RUN mkdir /var/run/sshd
 RUN sed -i 's/#*PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
 RUN sed -i 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' /etc/pam.d/sshd
