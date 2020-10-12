@@ -1,4 +1,4 @@
-# Défini l'image utiliser comme base
+# Définit l'image utilisé comme base
 FROM debian:buster
 
 # Définit la variable passer au moment de la construction
@@ -10,7 +10,7 @@ RUN apt-get update \
     && apt-get install -y \
         nginx openssh-server
 
-# Défini le mot de passe de l'utilisateur 'root' avec la variable ROOT_PASSWORD
+# Définit le mot de passe de l'utilisateur 'root' avec la variable ROOT_PASSWORD
 RUN echo 'root:'$ROOT_PASSWORD | chpasswd
 
 # Configuration du serveur SSH pour autoriser l'utilisateur 'root' à se connecter avec un mot de passe
