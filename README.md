@@ -48,7 +48,7 @@ Construire avec Docker un conteneur Debian 10 avec Nginx et OpenSSH.
    * Dans la machine hôte :
         * `ssh root@192.168.66.6 -p 2022`
         * Navigateur web : [http://192.168.66.6:8080](http://192.168.66.6:8080)  
-</br>
+
 7. Arrêtez le conteneur Docker **envOcr** en cours d'exécution :
 
     ```shell
